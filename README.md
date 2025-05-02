@@ -9,13 +9,14 @@ Yupana is an online tool that: a) estimates the environmental impacts of a proto
 
 **The Four Phases of a Prototype Life Cycle**
 The calculator focuses on two main environmental impacts that are present in the four phases of a prototype life cycle: energy consumption and CO2 emissions. Both environmental impacts are calculated using different parameters depending on the phase.
-**Raw Material Processing phase: **
+
+**Raw Material Processing phase:**
 This phase includes the total processing energy (MJ) used to make the prototyping material. It comes from the embodied energy (ee), which is defined as energy to produce one kilogram of material including all processing inefficiencies [1]. We also consider the CO2 emissions generated in the process.
 In equation (1), the total material manufacturing energy (Emm total) is calculated by multiplying the sum of prototyping material mass ( 𝑝𝑚), which includes final product and waste material from the number of iterations, and the sum of embodied energy per kg ( 𝑒𝑒) of it. In (2), the mass of the total raw material processing CO2 emissions (CO2mm total) is calculated by multiplying the sum of prototyping material mass ( ), and the sum of material processing CO2
 emissions per kg of material (𝐶𝑂2𝑚𝑚).
 Assumptions: The values used for the calculations are the embodied energy (ee) and CO2 emissions of materials (CO2mm) when they are primary manufactured and processed. This information is available from LCA-databases and software or literature sources such as Ashby [2].
 
-**Transportation phase: **
+**Transportation phase:**
 This phase includes the total transportation energy (MJ) used to deliver the prototyping material to the fabrication site. It is calculated by an energy factor (efi) (MJ/metric ton * km) that represents the relationship between the type of transportation used and the amount of energy needed per km to transport 1 ton of material. The distance di (km) traveled per mode is considered. We also included the CO2 emissions generated in this phase, coming from a similar emissions factor (CO2fi) (kgCO2/kg) per travel mode.
 
 In equation (3), the total transportation energy (Et total) is calculated by multiplying the sum of prototyping material mass ( 𝑝𝑚) with the sum of energy factor (efi) multiplied by the distance traveled di per mode. That result is divided
@@ -23,7 +24,7 @@ by 103 to transform the units from ton to kg. In equation (4), the total transpo
 traveled di (km) per mode. That result is divided also by 103 to transform the units from ton to kg.
 Assumptions: The energy factor values are from the following types of transportation: Short haul aircraft driven by kerosene, Ocean driven by shipping-diesel fuel, 32 metric ton truck driven by diesel fuel, 14 metric ton truck driven by diesel fuel, and light goods vehicle driven by diesel fuel. The user can pick the material’s traveling distance in between international (8000-9500 km), national (3500-4200 km) and local(300-370km). The calculator automatically picks the minimum or maximum value based on the user’s choice.
 
-**Digital Fabrication phase: **
+**Digital Fabrication phase:**
 This phase includes the total digital fabrication energy (MJ) used to make a prototype, which is related to the prototyping time (seconds) and the amount of power (Watt) a machine uses. We also included the CO2 emissions associated with the electricity used to run the machines, which depends on the electricity generation (from fossil fuels, nuclear energy, or renewable energy sources).
 In equation (6), the total digital fabrication energy (Edf total) is calculated by multiplying the digital fabrication power (Pdfi) in each mode, stand-by, idle, and 3D printing or laser cutting, with the respective time (ti) for stand-by, idle, and 3D printing or laser cutting. This is divided by 106 to transform the units from Watt seconds to MJ. Since we assume that the machine electricity is the only source for CO2 emissions in this life cycle phase, in equation (7), the total digital fabrication CO2 emissions (CO2df total) are calculated by multiplying the total digital fabrication energy (Edf total) from equation (6) with the electricity emissions factor CO2df (kgCO2/kWh) and dividing by 3.6 to transform the interim units from MJ to kWh.
 Assumptions: The calculator’s data base has values of two 3D printers (MakerBot Replicator+ and Ultimaker 2 Extended), and three laser cutters (Trotec Speedy 400, Epilog Fusion Pro 32, and Universal PLS6.75). The minimum and maximum power values of the machines were taken from the manufacturer data sheets.
